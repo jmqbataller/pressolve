@@ -3,7 +3,7 @@
  * Plugin Name: Pressolve Connector
  * Plugin URI: https://github.com/jmqbataller/pressolve
  * Description: Generates an administrator-reviewed, sanitized diagnostic report for Pressolve without remote access or stored exports.
- * Version: 2.0.0
+ * Version: 2.1.0
  * Author: John Mark Bataller
  * Author URI: https://jmqbataller.vercel.app/
  * License: MIT
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class Pressolve_Connector {
-	const VERSION = '2.0.0';
+	const VERSION = '2.1.0';
 
 	/** Register administrator-only hooks. */
 	public static function init() {

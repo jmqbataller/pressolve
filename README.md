@@ -1,14 +1,14 @@
 # Pressolve
 
-**Pressolve** is an AI WordPress Website Specialist skill for ChatGPT and Codex. It helps users understand WordPress concerns, diagnose failures, choose plugins and themes, implement safe fixes, and verify the result.
+**Pressolve** is an AI WordPress Website Specialist skill for ChatGPT and Codex. Paste a website link to start a bounded public status audit, or use it to diagnose failures, choose plugins and themes, implement safe fixes, and verify the result.
 
 > Diagnose. Fix. Build. Optimize.
 
 ## Download
 
-[**Download Pressolve v2.0.0**](https://github.com/jmqbataller/pressolve/releases/latest/download/Pressolve-ChatGPT-Skill-v2.0.0.zip)
+[**Download Pressolve v2.1.0**](https://github.com/jmqbataller/pressolve/releases/latest/download/Pressolve-ChatGPT-Skill-v2.1.0.zip)
 
-[**Download Pressolve Connector v2.0.0**](https://github.com/jmqbataller/pressolve/releases/latest/download/Pressolve-Connector-v2.0.0.zip)
+[**Download Pressolve Connector v2.1.0**](https://github.com/jmqbataller/pressolve/releases/latest/download/Pressolve-Connector-v2.1.0.zip)
 
 The ZIP contains only the installable `pressolve` skill folder. Release assets also include a SHA-256 checksum.
 
@@ -25,9 +25,20 @@ The public site still works. Help me diagnose it without downtime.
 
 Pressolve may also activate automatically for WordPress troubleshooting and Website Specialist requests when implicit skill invocation is supported.
 
+For a public URL audit, paste a link and ask:
+
+```text
+$pressolve
+
+Check the whole public status of https://example.com. Review WordPress clues,
+page errors, mobile layout, performance, SEO, accessibility, and security signals.
+Clearly tell me what cannot be verified without WordPress access.
+```
+
 ## Core capabilities
 
 - WordPress how-to instructions and dashboard guidance
+- Pasted-link Live Site Audit with bounded public page checks and explicit limitations
 - Screenshot, error-message, log, and code diagnosis
 - Plugin selection, comparison, conflicts, replacement, and updates
 - Themes, templates, child themes, Gutenberg, Elementor, Bricks, and Divi
@@ -77,7 +88,8 @@ pressolve/
 │   └── pressolve-connector/
 ├── scripts/
 │   ├── analyze_report.py
-│   └── build_blueprint.py
+│   ├── build_blueprint.py
+│   └── live_site_audit.py
 └── references/
     ├── audits-client-reports.md
     ├── block-studio.md
@@ -89,6 +101,7 @@ pressolve/
     ├── diagnostics-lab.md
     ├── headless-integrations.md
     ├── hosting-deployment.md
+    ├── live-site-audit.md
     ├── monitoring-privacy.md
     ├── multisite.md
     ├── performance-security.md
@@ -111,7 +124,7 @@ This creates deterministic skill and Connector ZIPs with checksums in `dist/`.
 
 ## Version
 
-Current release: **v2.0.0**
+Current release: **v2.1.0**
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
 

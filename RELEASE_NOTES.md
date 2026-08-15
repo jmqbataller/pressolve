@@ -1,27 +1,27 @@
-# Pressolve v2.0.0
+# Pressolve v2.1.0
 
-Pressolve 2.0 upgrades the AI WordPress Website Specialist from guidance-only support into an evidence-driven diagnosis and safe-reproduction toolkit.
+Pressolve 2.1 adds Live Site Audit: paste a WordPress website URL into ChatGPT and Pressolve can begin a bounded, read-only public status review without asking for login credentials.
 
-## New specialist modes
+## Live Site Audit
 
-- **Pressolve Scan:** Analyze sanitized diagnostic JSON, Site Health exports, logs, HAR files, Lighthouse reports, screenshots, and environment inventories.
-- **Pressolve Lab:** Generate conservative WordPress Playground Blueprints for disposable version/plugin/theme reproduction.
-- **Update Guard:** Produce compatibility matrices, update sequencing, staging tests, rollback limits, and production decisions.
-- **Multisite:** Diagnose Network Admin, domain mapping, network-active components, database topology, and migrations.
-- **Block Studio:** Work with block themes, `theme.json`, blocks, patterns, bindings, hooks, and the Interactivity API.
-- **Monitor and Privacy:** Create maintenance schedules, alerts, incident runbooks, consent/data inventories, and retention reviews.
-- **Migration and Integrations:** Handle content modeling, imports, multilingual content, headless WordPress, REST/GraphQL, webhooks, CRM, and automation.
-- **Business Packs:** Membership, LMS, booking, subscriptions, directories, marketplaces, multilingual, nonprofit, real-estate, and agency workflows.
+- Checks redirects, HTTPS, certificate state, public response status, representative pages, robots, sitemaps, REST discovery, metadata, headings, image alt attributes, mixed content, and cache/security-header signals.
+- Reviews mobile/desktop rendering, browser console or network errors, accessibility, SEO, and synthetic performance when the available tools support them.
+- Detects WordPress and public plugin/theme asset clues with confidence labels and strict warnings against treating clues as a complete inventory or vulnerability result.
+- Blocks private/local network targets, validates redirects, respects crawl limits and `robots.txt`, skips sensitive paths, never logs in, and never submits forms, carts, checkout, or other data-changing actions.
+- Separates findings visible from a public URL from deeper checks requiring the Connector, WordPress admin, hosting logs, field analytics, or business-system reconciliation.
 
-## Pressolve Connector
+## Example
 
-The new separate `Pressolve-Connector-v2.0.0.zip` is a read-only WordPress administrator tool. It previews and downloads a sanitized `pressolve-report.json` without remote administration, telemetry, stored exports, public endpoints, or database tables.
+```text
+$pressolve
 
-Always review the report before sharing it. Automated redaction cannot guarantee that every sensitive value is detected.
+Check the whole public status of https://example.com and tell me the Critical,
+High, Medium, and Low findings. Clearly identify everything not tested.
+```
 
 ## Release assets
 
-- `Pressolve-ChatGPT-Skill-v2.0.0.zip`
-- `Pressolve-ChatGPT-Skill-v2.0.0.zip.sha256`
-- `Pressolve-Connector-v2.0.0.zip`
-- `Pressolve-Connector-v2.0.0.zip.sha256`
+- `Pressolve-ChatGPT-Skill-v2.1.0.zip`
+- `Pressolve-ChatGPT-Skill-v2.1.0.zip.sha256`
+- `Pressolve-Connector-v2.1.0.zip`
+- `Pressolve-Connector-v2.1.0.zip.sha256`

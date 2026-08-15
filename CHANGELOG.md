@@ -2,6 +2,22 @@
 
 All notable Pressolve changes are recorded here.
 
+## [2.1.0] - 2026-08-15
+
+### Added
+
+- Pressolve Live Site Audit mode for pasted WordPress or website URLs.
+- Bounded public checks for redirects, HTTPS/certificate state, representative page responses, WordPress signals, REST discovery, robots, sitemaps, metadata, headings, image alt attributes, mixed content, cache/security headers, and public plugin/theme asset clues.
+- Safe `live_site_audit.py` JSON scanner with private-network blocking, redirect validation, crawl limits, `robots.txt` handling, sensitive-path exclusions, and offline self-tests.
+- Public-versus-deep audit matrix so results clearly identify which checks require the Pressolve Connector, WordPress admin, hosting logs, or field monitoring.
+- Live-audit reporting states: Healthy, Needs attention, Degraded, Critical, and Incomplete.
+
+### Changed
+
+- Updated Pressolve triggering and default prompt to recognize a pasted website URL as an audit request.
+- Aligned the Connector and release packages with the v2.1 suite.
+- Added release-time self-testing for the new public scanner.
+
 ## [2.0.0] - 2026-08-15
 
 ### Added

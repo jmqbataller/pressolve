@@ -3,7 +3,7 @@ Contributors: jmqbataller
 Tags: diagnostics, site health, troubleshooting, wordpress
 Requires at least: 6.5
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: MIT
 License URI: https://opensource.org/license/mit
 
@@ -30,6 +30,9 @@ The report excludes URLs/domains, usernames, posts, orders, customers, form entr
 The plugin does not transmit or persist diagnostic data. Generating a report performs one short REST self-check against the same WordPress site.
 
 == Changelog ==
+
+= 2.1.0 =
+* Aligns the Connector package with Pressolve Live Site Audit and the v2.1 suite release.
 
 = 2.0.0 =
 * Initial read-only diagnostic connector release.

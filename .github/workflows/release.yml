@@ -35,6 +35,11 @@ jobs:
           php:8.3-cli-alpine
           php -l pressolve/assets/pressolve-connector/pressolve-connector.php
 
+      - name: Test bundled audit tools
+        run: |
+          python3 pressolve/scripts/live_site_audit.py --self-test
+          python3 pressolve/scripts/build_blueprint.py --plugin woocommerce --theme twentytwentyfive | python3 -m json.tool >/dev/null
+
       - name: Build release package
         run: python3 scripts/package.py
 

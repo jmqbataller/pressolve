@@ -18,7 +18,9 @@ REQUIRED_FILES = (
     "agents/openai.yaml",
     "scripts/analyze_report.py",
     "scripts/build_blueprint.py",
+    "scripts/live_site_audit.py",
     "references/diagnostics-lab.md",
+    "references/live-site-audit.md",
     "references/update-guard.md",
     "references/connector.md",
     "assets/pressolve-connector/pressolve-connector.php",
@@ -27,7 +29,7 @@ REQUIRED_FILES = (
 )
 
 
-def validate() -> None:
+def validate(version: str) -> None:
     if not SKILL_DIR.is_dir():
         raise SystemExit("Missing installable skill directory: pressolve/")
 
@@ -44,13 +46,17 @@ def validate() -> None:
         if marker not in skill_text:
             raise SystemExit(f"Unreferenced skill resource: {marker}")
 
-    if "Version: 2.0.0" not in (CONNECTOR_DIR / "pressolve-connector.php").read_text(encoding="utf-8"):
-        raise SystemExit("Connector plugin version does not match the Pressolve 2.0 release")
+    if f"Version: {version}" not in (CONNECTOR_DIR / "pressolve-connector.php").read_text(encoding="utf-8"):
+        raise SystemExit(f"Connector plugin version does not match Pressolve {version}")
 
 
 def write_archive(source_dir: Path, root_name: str, archive: Path) -> Path:
     with ZipFile(archive, "w", compression=ZIP_DEFLATED, compresslevel=9) as bundle:
-        for source in sorted(path for path in source_dir.rglob("*") if path.is_file()):
+        for source in sorted(
+            path
+            for path in source_dir.rglob("*")
+            if path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc"
+        ):
             relative = source.relative_to(source_dir)
             info = ZipInfo(f"{root_name}/{relative.as_posix()}", FIXED_TIME)
             info.compress_type = ZIP_DEFLATED
@@ -64,10 +70,10 @@ def write_archive(source_dir: Path, root_name: str, archive: Path) -> Path:
 
 
 def build() -> list[Path]:
-    validate()
     version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
     if not version:
         raise SystemExit("VERSION is empty")
+    validate(version)
 
     DIST_DIR.mkdir(exist_ok=True)
     skill_archive = DIST_DIR / f"Pressolve-ChatGPT-Skill-v{version}.zip"

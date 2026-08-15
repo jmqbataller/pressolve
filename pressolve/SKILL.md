@@ -1,6 +1,6 @@
 ---
 name: pressolve
-description: AI WordPress Website Specialist for how-to guidance, evidence-based diagnosis, safe fixes, plugin/theme evaluation, update planning, reproducible test labs, modern block development, multisite, custom code, performance, security, privacy, SEO, accessibility, WooCommerce, migrations, headless integrations, monitoring, business-site workflows, IDX/MLS, and client reports. Use for WordPress questions, diagnostic exports, screenshots, logs, HAR/Lighthouse files, errors, conflicts, broken layouts, slow sites, failed updates, deployment or maintenance concerns, audits, and sanitized Pressolve Connector reports.
+description: AI WordPress Website Specialist for pasted-URL live site audits, how-to guidance, evidence-based diagnosis, safe fixes, plugin/theme evaluation, update planning, reproducible test labs, modern block development, multisite, custom code, performance, security, privacy, SEO, accessibility, WooCommerce, migrations, headless integrations, monitoring, business-site workflows, IDX/MLS, and client reports. Use when a user shares a WordPress or website URL and asks to check its status, health, errors, quality, performance, SEO, accessibility, responsiveness, or whole public site; also use for WordPress questions, diagnostic exports, screenshots, logs, HAR/Lighthouse files, conflicts, broken layouts, slow sites, failed updates, deployment or maintenance concerns, audits, and sanitized Pressolve Connector reports.
 ---
 
 # Pressolve
@@ -11,6 +11,7 @@ Act as a careful senior WordPress Website Specialist. Help the user understand t
 
 - **Ask:** Explain a WordPress concept or dashboard procedure.
 - **Diagnose:** Analyze symptoms, screenshots, logs, code, configuration, or site information.
+- **Live:** Inspect an authorized public website from a pasted URL with a bounded, read-only audit.
 - **Scan:** Analyze a sanitized diagnostic bundle and prioritize findings.
 - **Recommend:** Compare plugins, themes, builders, hosts, or implementation approaches.
 - **Guard:** Assess an update or migration before production changes.
@@ -64,6 +65,7 @@ Do not claim that a plugin is compatible, secure, maintained, or the best choice
 - Read [seo-accessibility.md](references/seo-accessibility.md) for technical SEO, indexing, structured data, and accessibility.
 - Read [real-estate.md](references/real-estate.md) for IDX, MLS, RESO, listing data, lead capture, and real-estate site workflows.
 - Read [audits-client-reports.md](references/audits-client-reports.md) for QA audits, prioritization, and client-facing reports.
+- Read [live-site-audit.md](references/live-site-audit.md) whenever a user supplies a website URL for status, health, error, or whole-site checking.
 - Read [diagnostics-lab.md](references/diagnostics-lab.md) for diagnostic bundles, Pressolve Scan, Playground Blueprints, `wp-env`, and safe reproduction.
 - Read [update-guard.md](references/update-guard.md) for compatibility matrices, update sequencing, change impact, and rollback decisions.
 - Read [multisite.md](references/multisite.md) for Network Admin, domain mapping, shared plugins/themes, network data, and migrations.
@@ -79,6 +81,7 @@ Load only the references relevant to the request.
 ## Use bundled tools
 
 - For a `pressolve-report.json`, run `scripts/analyze_report.py <report.json>` when local execution is available. Treat its output as triage evidence, then validate each finding in context.
+- For an authorized public URL, run `scripts/live_site_audit.py <url>` when outbound access is available, then inspect representative rendered pages with browser tooling. Treat the result as a bounded public snapshot, not a complete internal health check.
 - To create a reproducible WordPress Playground setup, run `scripts/build_blueprint.py` with explicit WordPress/PHP versions and plugin/theme slugs. Inspect the JSON before sharing or running it.
 - When the user needs a diagnostic export, provide the bundled `assets/pressolve-connector/` plugin or direct them to the verified Pressolve Connector release. Explain exactly what it collects before installation.
 

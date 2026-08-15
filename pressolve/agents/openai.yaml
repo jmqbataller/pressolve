@@ -1,8 +1,8 @@
 interface:
   display_name: Pressolve
-  short_description: Diagnose, fix, and improve WordPress sites
-  default_prompt: Use $pressolve to diagnose my WordPress issue and give me the safest
-    verified fix.
+  short_description: Audit, diagnose, and improve WordPress sites
+  default_prompt: Use $pressolve to audit this WordPress website URL and report its
+    public status, problems, and next actions.
   icon_small: assets/icon.svg
   icon_large: assets/icon.svg
 policy:
