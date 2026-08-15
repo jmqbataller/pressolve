@@ -1,0 +1,62 @@
+name: Publish Pressolve release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - VERSION
+      - pressolve/**
+      - scripts/package.py
+      - RELEASE_NOTES.md
+      - .github/workflows/release.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build release package
+        run: python3 scripts/package.py
+
+      - name: Validate release package
+        shell: bash
+        run: |
+          version="$(tr -d '[:space:]' < VERSION)"
+          asset="dist/Pressolve-ChatGPT-Skill-v${version}.zip"
+          test -f "${asset}"
+          test -f "${asset}.sha256"
+          python3 -m zipfile --test "${asset}"
+          (cd dist && sha256sum --check "$(basename "${asset}.sha256")")
+
+      - name: Publish release if version is new
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          version="$(tr -d '[:space:]' < VERSION)"
+          tag="v${version}"
+          asset="dist/Pressolve-ChatGPT-Skill-${tag}.zip"
+
+          if gh release view "${tag}" >/dev/null 2>&1; then
+            echo "Release ${tag} already exists."
+            exit 0
+          fi
+
+          gh release create "${tag}" \
+            "${asset}" \
+            "${asset}.sha256" \
+            --target "${GITHUB_SHA}" \
+            --title "Pressolve ${tag}" \
+            --notes-file RELEASE_NOTES.md

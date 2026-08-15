@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pressolve"
+  short_description: "Diagnose, fix, and improve WordPress sites"
+  default_prompt: "Use $pressolve to diagnose my WordPress issue and give me the safest verified fix."
