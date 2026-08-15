@@ -1,19 +1,27 @@
-# Pressolve v1.0.0
+# Pressolve v2.0.0
 
-The first public Pressolve release turns ChatGPT or Codex into a structured AI WordPress Website Specialist.
+Pressolve 2.0 upgrades the AI WordPress Website Specialist from guidance-only support into an evidence-driven diagnosis and safe-reproduction toolkit.
 
-## Highlights
+## New specialist modes
 
-- Diagnoses WordPress errors from symptoms, screenshots, logs, and code.
-- Guides plugin/theme selection, conflict isolation, replacement, and updates.
-- Covers Gutenberg, Elementor, Bricks, Divi, forms, and WooCommerce.
-- Handles performance, security, hosting, DNS, SSL, SMTP, migration, and WP-CLI concerns.
-- Reviews custom WordPress PHP, REST, AJAX, JavaScript, and CSS safely.
-- Supports technical SEO, accessibility, IDX/MLS/RESO, audits, and client reports.
-- Uses backup, rollback, evidence, and verification guardrails for production work.
+- **Pressolve Scan:** Analyze sanitized diagnostic JSON, Site Health exports, logs, HAR files, Lighthouse reports, screenshots, and environment inventories.
+- **Pressolve Lab:** Generate conservative WordPress Playground Blueprints for disposable version/plugin/theme reproduction.
+- **Update Guard:** Produce compatibility matrices, update sequencing, staging tests, rollback limits, and production decisions.
+- **Multisite:** Diagnose Network Admin, domain mapping, network-active components, database topology, and migrations.
+- **Block Studio:** Work with block themes, `theme.json`, blocks, patterns, bindings, hooks, and the Interactivity API.
+- **Monitor and Privacy:** Create maintenance schedules, alerts, incident runbooks, consent/data inventories, and retention reviews.
+- **Migration and Integrations:** Handle content modeling, imports, multilingual content, headless WordPress, REST/GraphQL, webhooks, CRM, and automation.
+- **Business Packs:** Membership, LMS, booking, subscriptions, directories, marketplaces, multilingual, nonprofit, real-estate, and agency workflows.
 
-## Install
+## Pressolve Connector
 
-Download `Pressolve-ChatGPT-Skill-v1.0.0.zip` from this release and import it into a ChatGPT or Codex environment that supports skills. Invoke it with `$pressolve`.
+The new separate `Pressolve-Connector-v2.0.0.zip` is a read-only WordPress administrator tool. It previews and downloads a sanitized `pressolve-report.json` without remote administration, telemetry, stored exports, public endpoints, or database tables.
 
-The `.sha256` asset can be used to verify the downloaded ZIP.
+Always review the report before sharing it. Automated redaction cannot guarantee that every sensitive value is detected.
+
+## Release assets
+
+- `Pressolve-ChatGPT-Skill-v2.0.0.zip`
+- `Pressolve-ChatGPT-Skill-v2.0.0.zip.sha256`
+- `Pressolve-Connector-v2.0.0.zip`
+- `Pressolve-Connector-v2.0.0.zip.sha256`

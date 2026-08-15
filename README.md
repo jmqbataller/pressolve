@@ -6,7 +6,9 @@
 
 ## Download
 
-[**Download the latest Pressolve ZIP**](https://github.com/jmqbataller/pressolve/releases/latest/download/Pressolve-ChatGPT-Skill-v1.0.0.zip)
+[**Download Pressolve v2.0.0**](https://github.com/jmqbataller/pressolve/releases/latest/download/Pressolve-ChatGPT-Skill-v2.0.0.zip)
+
+[**Download Pressolve Connector v2.0.0**](https://github.com/jmqbataller/pressolve/releases/latest/download/Pressolve-Connector-v2.0.0.zip)
 
 The ZIP contains only the installable `pressolve` skill folder. Release assets also include a SHA-256 checksum.
 
@@ -37,6 +39,15 @@ Pressolve may also activate automatically for WordPress troubleshooting and Webs
 - Technical SEO and accessibility reviews
 - Real-estate IDX, MLS, RESO, property search, and lead-capture guidance
 - Website audits, QA checklists, maintenance notes, and client-ready reports
+- Diagnostic JSON, Site Health, log, HAR, Lighthouse, and screenshot analysis
+- WordPress Playground Blueprint and disposable reproduction-lab generation
+- Update compatibility matrices, sequencing, staging decisions, and rollback planning
+- WordPress Multisite and mapped-domain operations
+- Modern block themes, `theme.json`, patterns, bindings, hooks, and the Interactivity API
+- Monitoring, incident-response, privacy, consent, and data-retention workflows
+- Content imports, multilingual migrations, headless WordPress, CRM, webhooks, and automation
+- Membership, LMS, booking, subscriptions, directories, marketplaces, and nonprofit workflows
+- Read-only Pressolve Connector with sanitized administrator-reviewed JSON export
 
 ## Safety principles
 
@@ -61,16 +72,31 @@ pressolve/
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
+├── assets/
+│   ├── icon.svg
+│   └── pressolve-connector/
+├── scripts/
+│   ├── analyze_report.py
+│   └── build_blueprint.py
 └── references/
     ├── audits-client-reports.md
+    ├── block-studio.md
     ├── builders-commerce.md
+    ├── business-packs.md
+    ├── connector.md
+    ├── content-migration.md
     ├── custom-development.md
+    ├── diagnostics-lab.md
+    ├── headless-integrations.md
     ├── hosting-deployment.md
+    ├── monitoring-privacy.md
+    ├── multisite.md
     ├── performance-security.md
     ├── plugins-themes.md
     ├── real-estate.md
     ├── seo-accessibility.md
-    └── troubleshooting.md
+    ├── troubleshooting.md
+    └── update-guard.md
 ```
 
 Repository-level packaging and release files are intentionally kept outside the installable skill folder.
@@ -81,11 +107,11 @@ Repository-level packaging and release files are intentionally kept outside the 
 python3 scripts/package.py
 ```
 
-This creates a deterministic ZIP and checksum in `dist/`.
+This creates deterministic skill and Connector ZIPs with checksums in `dist/`.
 
 ## Version
 
-Current release: **v1.0.0**
+Current release: **v2.0.0**
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
 

@@ -27,6 +27,14 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Lint Connector PHP
+        run: >-
+          docker run --rm
+          -v "$PWD:/app"
+          -w /app
+          php:8.3-cli-alpine
+          php -l pressolve/assets/pressolve-connector/pressolve-connector.php
+
       - name: Build release package
         run: python3 scripts/package.py
 
@@ -34,11 +42,16 @@ jobs:
         shell: bash
         run: |
           version="$(tr -d '[:space:]' < VERSION)"
-          asset="dist/Pressolve-ChatGPT-Skill-v${version}.zip"
-          test -f "${asset}"
-          test -f "${asset}.sha256"
-          python3 -m zipfile --test "${asset}"
-          (cd dist && sha256sum --check "$(basename "${asset}.sha256")")
+          assets=(
+            "dist/Pressolve-ChatGPT-Skill-v${version}.zip"
+            "dist/Pressolve-Connector-v${version}.zip"
+          )
+          for asset in "${assets[@]}"; do
+            test -f "${asset}"
+            test -f "${asset}.sha256"
+            python3 -m zipfile --test "${asset}"
+            (cd dist && sha256sum --check "$(basename "${asset}.sha256")")
+          done
 
       - name: Publish release if version is new
         env:
@@ -47,7 +60,8 @@ jobs:
         run: |
           version="$(tr -d '[:space:]' < VERSION)"
           tag="v${version}"
-          asset="dist/Pressolve-ChatGPT-Skill-${tag}.zip"
+          skill="dist/Pressolve-ChatGPT-Skill-${tag}.zip"
+          connector="dist/Pressolve-Connector-${tag}.zip"
 
           if gh release view "${tag}" >/dev/null 2>&1; then
             echo "Release ${tag} already exists."
@@ -55,8 +69,10 @@ jobs:
           fi
 
           gh release create "${tag}" \
-            "${asset}" \
-            "${asset}.sha256" \
+            "${skill}" \
+            "${skill}.sha256" \
+            "${connector}" \
+            "${connector}.sha256" \
             --target "${GITHUB_SHA}" \
             --title "Pressolve ${tag}" \
             --notes-file RELEASE_NOTES.md

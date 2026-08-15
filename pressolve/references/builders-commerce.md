@@ -36,7 +36,7 @@ For checkout problems, trace:
 6. Theme template overrides and checkout-block compatibility
 7. Webhooks, Action Scheduler, stock, and order notes
 
-Never modify live orders, issue refunds, resend customer email, or trigger payment actions without explicit authorization. Redact customer and payment data.
+Never modify live orders, issue refunds, resend customer email, run overdue cron/Scheduled Actions, or trigger payment actions without explicit authorization. Queued jobs may charge renewals, modify orders, send email, or call webhooks. Before retrying any failed-looking payment, reconcile the WooCommerce order, gateway transaction, webhook, and order notes to prevent duplicate charges. Redact customer and payment data.
 
 ## WooCommerce customization
 

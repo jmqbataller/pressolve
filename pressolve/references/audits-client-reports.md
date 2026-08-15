@@ -50,3 +50,5 @@ Use this compact structure:
 4. Recommended action plan
 5. Risks, dependencies, and decisions needed
 6. Verification or acceptance criteria
+
+For incident reports, also record current state, affected customer journey and scope, confirmed versus unconfirmed cause, timezone, containment status, data/payment reconciliation status, owner, and the committed time for the next update. Never state that no orders, payments, messages, or data were affected until the relevant systems have been reconciled.

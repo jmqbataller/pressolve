@@ -1,4 +1,14 @@
 interface:
-  display_name: "Pressolve"
-  short_description: "Diagnose, fix, and improve WordPress sites"
-  default_prompt: "Use $pressolve to diagnose my WordPress issue and give me the safest verified fix."
+  display_name: Pressolve
+  short_description: Diagnose, fix, and improve WordPress sites
+  default_prompt: Use $pressolve to diagnose my WordPress issue and give me the safest
+    verified fix.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
